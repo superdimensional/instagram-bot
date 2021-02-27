@@ -11,3 +11,6 @@ def passGen():
     return n
 #* in the future make a better password thing using actual letters ?
 
+def emailGen():
+    botMail = nameGen() + "@gmail.com" # takes generated name and makes it an email
+    return botMail
