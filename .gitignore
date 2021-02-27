@@ -3,4 +3,6 @@
 
 geckodriver.log
 # ignore gecko driver logs
+
 __pycache__/accCred.cpython-39.pyc
+# ignore python cache binary
