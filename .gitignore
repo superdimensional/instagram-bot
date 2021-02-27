@@ -1,4 +1,5 @@
+/__pycache__/
+# ignore python cache
+
 geckodriver.log
 # ignore gecko driver logs
-
-/__pycache__/
