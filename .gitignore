@@ -1,0 +1,4 @@
+geckodriver.log
+# ignore gecko driver logs
+
+/__pycache__/
