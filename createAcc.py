@@ -5,6 +5,8 @@ from selenium.webdriver.support.ui import Select
 
 from accCred import emailGen, nameGen, passGen
 
+import random
+
 browser = webdriver.Firefox()
 browser.implicitly_wait(5)
 browser.get('https://www.instagram.com/accounts/emailsignup/')
@@ -27,10 +29,20 @@ login_button.click()
 
 sleep(3)
 
-selectYear_input = browser.find_element_by_xpath("//select[@title='Year:']")
-selectYear_input.click()
-birthYear_input = browser.find_element_by_xpath("//select[@title='1969']")
-birthYear_input.click()
+birthMonth = browser.find_element_by_xpath("//select[@title='Month:']") # find select button
+drop = Select(birthMonth)                                               # actully select it
+drop.select_by_value(str(random.randint(1, 12)))                             # choose option based on value
+
+birthDay = browser.find_element_by_xpath("//select[@title='Day:']")
+drop = Select(birthDay) 
+drop.select_by_value(str(random.randint(1, 28))) 
+
+birthYear = browser.find_element_by_xpath("//select[@title='Year:']")
+drop = Select(birthYear) 
+drop.select_by_value(str(1900 + random.randint(20, 100))) 
+
+signup_button = browser.find_element_by_xpath("//button[@type='button']")
+signup_button.click()
 
 sleep(10)
 browser.close()
