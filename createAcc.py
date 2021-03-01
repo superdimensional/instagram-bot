@@ -31,7 +31,7 @@ sleep(3)
 
 birthMonth = browser.find_element_by_xpath("//select[@title='Month:']") # find select button
 drop = Select(birthMonth)                                               # actully select it
-drop.select_by_value(str(random.randint(1, 12)))                             # choose option based on value
+drop.select_by_value(str(random.randint(1, 12)))                        # choose option based on value
 
 birthDay = browser.find_element_by_xpath("//select[@title='Day:']")
 drop = Select(birthDay) 
