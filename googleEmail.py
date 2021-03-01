@@ -32,8 +32,11 @@ sleep(5)
 
 
 phoneNum_input = browser.find_element_by_css_selector("input[id='phoneNumberId']")
-phoneNum_input.send_keys("6475710755", Keys.ENTER)
+phoneNum_input.send_keys("‪7816890178‬", Keys.ENTER)
 
+#// Next step: Link virtual phone number to email phone number verification 
+#// Ask hamood or kasem to make a google voice number
+#! google voice wont work
 
 # sleep(15)
 # browser.close()
