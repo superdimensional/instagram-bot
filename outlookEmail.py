@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import Select, WebDriverWait
 
-from accCred import emailGen, nameGen, passGen, toFile
+from accCred import emailGen, emailToFile, nameGen, passGen
 
 browser = webdriver.Firefox()
 browser.implicitly_wait(5)
@@ -63,7 +63,7 @@ sleep(240)
 
 # TODO: add something to automatically do the funCaptcha
 
-toFile(accUsername, accPasswd)
+emailToFile(accUsername, accPasswd)
     
 # TODO:  make it find an element if the element exists then do whats under this comment
 # TODO:  write <email>:<password> combo into a file if the account was successfully created
