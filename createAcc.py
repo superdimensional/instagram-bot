@@ -29,6 +29,15 @@ login_button.click()
 
 sleep(3)
 
+try:
+#identify element
+l= driver.find_element_by_css_selector("h4")
+s= l.text
+  print("Element exist -" + s)
+#NoSuchElementException thrown if not present
+except NoSuchElementException:
+print("Element does not exist")
+
 birthMonth = browser.find_element_by_xpath("//select[@title='Month:']") # find select button
 drop = Select(birthMonth)                                               # actully select it
 drop.select_by_value(str(random.randint(1, 12)))                        # choose option based on value

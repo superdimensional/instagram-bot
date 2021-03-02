@@ -17,6 +17,10 @@ def emailGen():
     botMail = nameGen() + "@outlook.com" # takes generated name and makes it an email
     return botMail
 
-def toFile(email_valid, password_valid):
+def emailToFile(email_valid, password_valid):
     with open('botEmails.txt', 'a+') as f:
         f.write(str(email_valid + "@outlook.com:" + password_valid + "\n"))
+
+def instaToFile(username_valid, password_valid):
+    with open('botInsta.txt', 'a+') as f:
+        f.write(str(username_valid + ":" + password_valid + "\n"))
