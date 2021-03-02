@@ -1,11 +1,11 @@
+import random
 from time import sleep
 
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import Select
 
 from accCred import emailGen, nameGen, passGen
-
-import random
 
 browser = webdriver.Firefox()
 browser.implicitly_wait(5)
