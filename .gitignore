@@ -1,8 +1,12 @@
 /__pycache__/
-# ignore python cache
+# ignore python cache directory and all of its content
+
+/unused/
+# ignore unused code  
 
 geckodriver.log
 # ignore gecko driver logs
 
-__pycache__/accCred.cpython-39.pyc
-# ignore python cache binary
+botEmails.txt
+#ignore <email>:<password> dump
+
