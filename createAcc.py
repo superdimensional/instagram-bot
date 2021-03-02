@@ -21,7 +21,7 @@ password_input = browser.find_element_by_css_selector("input[name='password']")
 
 email_input.send_keys(emailGen())
 fullname_input.send_keys(nameGen())
-username_input.send_keys(nameGen())
+username_input.send_keys("Array_in_a_matrix")
 password_input.send_keys(passGen())
 
 login_button = browser.find_element_by_xpath("//button[@type='submit']")
@@ -29,13 +29,15 @@ login_button.click()
 
 sleep(3)
 
-try:
-    l = browser.find_element_by_xpath("//select[@title='Month:']")
-    s = l.text
-    print("Element exist -" + s)
-    except NoSuchElementException:
-    print("Element does not exist")
-    browser.close()
+# TODO: add something to check if the username is taken
+# try:
+#     sleep
+#     l = browser.find_element_by_css_selector('input[id="ssfErrorAlert"]')
+#     s = l.text
+#     print("Element exist -" + s)
+#     browser.close()
+# except NoSuchElementException:
+#     print("Error does not exist\n")
 
 birthMonth = browser.find_element_by_xpath("//select[@title='Month:']") # find select button
 drop = Select(birthMonth)                                               # actully select it
