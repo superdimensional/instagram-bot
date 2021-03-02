@@ -61,8 +61,10 @@ button_input.send_keys(Keys.ENTER)
 
 sleep(240)
 
-toFile(accUsername, accPasswd)
+# TODO: add something to automatically do the funCaptcha
 
+toFile(accUsername, accPasswd)
+    
 # TODO:  make it find an element if the element exists then do whats under this comment
 # TODO:  write <email>:<password> combo into a file if the account was successfully created
 
