@@ -1,5 +1,5 @@
 import random
-
+import json
 
 def nameGen():
     n = random.randint(0, 1000) # chooses random number between 0 and 100
@@ -17,7 +17,7 @@ def emailGen():                             # takes generated name and makes it 
     botMail = nameGen() + "@outlook.com"    # TODO: fix inconcistancy, it creates a name for an email that has a diffrent name!
     return botMail                          # TODO: add an input for the function and pass the name of the account through it
 
-def emailToFile(email_valid, password_valid):
+def emailToFile(email_valid, password_valid):                                       # TODO: change from using .txt to .json
     with open('botEmails.txt', 'a+') as f:
         f.write(str(email_valid + "@outlook.com:" + password_valid + "\n"))
 

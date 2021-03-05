@@ -12,7 +12,7 @@ browser.implicitly_wait(5)
 browser.get('https://www.instagram.com/accounts/emailsignup/')
 sleep(2)
 
-
+# TODO: import <email>:<password> and use them to create accounts
 
 email_input = browser.find_element_by_css_selector("input[name='emailOrPhone']")
 fullname_input = browser.find_element_by_css_selector("input[name='fullName']")
@@ -21,7 +21,7 @@ password_input = browser.find_element_by_css_selector("input[name='password']")
 
 email_input.send_keys(emailGen())
 fullname_input.send_keys(nameGen())
-username_input.send_keys("Array_in_a_matrix")
+username_input.send_keys(nameGen()))
 password_input.send_keys(passGen())
 
 login_button = browser.find_element_by_xpath("//button[@type='submit']")
@@ -53,6 +53,8 @@ drop.select_by_value(str(1900 + random.randint(20, 100)))
 
 signup_button = browser.find_element_by_xpath("//button[@type='button']")
 signup_button.click()
+
+# TODO: add something to print credentials to instaToFile.txt
 
 sleep(10)
 browser.close()

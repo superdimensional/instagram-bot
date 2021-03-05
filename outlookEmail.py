@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
-from selenium.webdriver.support.ui import Select, WebDriverWait
+from selenium.webdriver.support.ui import Select, WebDriverWait 
 
 from accCred import emailGen, emailToFile, nameGen, passGen
 
@@ -68,7 +68,7 @@ emailToFile(accUsername, accPasswd)
 # TODO:  make it find an element if the element exists then do whats under this comment
 # TODO:  write <email>:<password> combo into a file if the account was successfully created
 
-# sleep(3)
-# browser.close()
+sleep(3)
+browser.close()
 
 
