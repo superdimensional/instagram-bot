@@ -7,8 +7,5 @@
 geckodriver.log
 # ignore gecko driver logs
 
-emailToFile.txt
-#ignore <email>:<password> dump
-
-instaToFile.txt
-#ignore <username>:<password> dump
+/credentials/
+# ignore credentials folder
