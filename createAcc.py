@@ -7,12 +7,14 @@ from selenium.webdriver.support.ui import Select
 
 from accCred import emailGen, nameGen, passGen
 
+
+# TODO: import email credential json and use it to create accounts
+
 browser = webdriver.Firefox()
 browser.implicitly_wait(5)
 browser.get('https://www.instagram.com/accounts/emailsignup/')
 sleep(2)
 
-# TODO: import <email>:<password> and use them to create accounts
 
 email_input = browser.find_element_by_css_selector("input[name='emailOrPhone']")
 fullname_input = browser.find_element_by_css_selector("input[name='fullName']")

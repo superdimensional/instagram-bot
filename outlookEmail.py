@@ -59,11 +59,11 @@ drop.select_by_value(str(1900 + random.randint(20, 100)))
 button_input = browser.find_element_by_css_selector('input[id="iSignupAction"]')
 button_input.send_keys(Keys.ENTER)
 
-sleep(240)
+sleep(120) # time to solve captcha manually will be removed in the future? 
 
 # TODO: add something to automatically do the funCaptcha
 
-emailToFile(accUsername, accPasswd)
+emailToFile(accUsername, accPasswd) # this is over here to make sure the account is actually valid before dumping it into the file
     
 # TODO:  make it find an element if the element exists then do whats under this comment
 # TODO:  write <email>:<password> combo into a file if the account was successfully created
