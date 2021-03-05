@@ -18,9 +18,12 @@ def emailGen():                             # takes generated name and makes it 
     return botMail                          # TODO: add an input for the function and pass the name of the account through it
 
 def emailToFile(email_valid, password_valid):                                       # TODO: change from using .txt to .json
-    with open('botEmails.txt', 'a+') as f:
+    with open('credentials/botEmails.txt', 'a+') as f:
         f.write(str(email_valid + "@outlook.com:" + password_valid + "\n"))
 
 def instaToFile(username_valid, password_valid):
-    with open('botInsta.txt', 'a+') as f:
+    with open('credentials/botInsta.txt', 'a+') as f:
         f.write(str(username_valid + ":" + password_valid + "\n"))
+
+def emaulToJSON(email_valid, password_valid):
+    with open('credentials/botEmail.json', 'a+') 
