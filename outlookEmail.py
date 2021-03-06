@@ -8,7 +8,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import Select, WebDriverWait 
 
-from accCred import emailGen, emailToFile, nameGen, passGen
+from accCred import emailGen, emailToFile, nameGen, passGen, credToJSON
+
+accPasswd = passGen()
+accUsername = nameGen()
+print(accUsername)
+print(accPasswd)
 
 browser = webdriver.Firefox()
 browser.implicitly_wait(5)
@@ -19,8 +24,6 @@ accPasswd = passGen()
 accUsername = nameGen()
 print(accUsername)
 print(accPasswd)
-
-
 
 username_input = browser.find_element_by_css_selector('input[id="MemberName"]')
 username_input.send_keys(accUsername, Keys.ENTER)
@@ -63,7 +66,7 @@ sleep(120) # time to solve captcha manually will be removed in the future?
 
 # TODO: add something to automatically do the funCaptcha
 
-emailToFile(accUsername, accPasswd) # this is over here to make sure the account is actually valid before dumping it into the file
+credToJSON(accUsername, accPasswd) # this is over here to make sure the account is actually valid before dumping it into the file
     
 # TODO:  make it find an element if the element exists then do whats under this comment
 # TODO:  write <email>:<password> combo into a file if the account was successfully created

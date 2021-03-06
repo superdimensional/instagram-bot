@@ -14,16 +14,27 @@ def passGen():
 #* in the future make a better password thing using actual letters ?
 
 def emailGen():                             # takes generated name and makes it an email
-    botMail = nameGen() + "@outlook.com"    # TODO: fix inconcistancy, it creates a name for an email that has a diffrent name!
+    botMail = toEmail(nameGen())    # TODO: fix inconcistancy, it creates a name for an email that has a diffrent name!
     return botMail                          # TODO: add an input for the function and pass the name of the account through it
 
-def emailToFile(email_valid, password_valid):                                       # TODO: change from using .txt to .json
+def toEmail(username):
+    email = str(username) + "@outlook.com"
+    return email
+
+def emailToFile(email_valid, password_valid):                                      # ! deprecated 
     with open('credentials/botEmails.txt', 'a+') as f:
-        f.write(str(email_valid + "@outlook.com:" + password_valid + "\n"))
+        f.write(str(toEmail(email_valid) + ":" + password_valid + "\n"))           # ! replaced by credToJson function 
 
-def instaToFile(username_valid, password_valid):
-    with open('credentials/botInsta.txt', 'a+') as f:
-        f.write(str(username_valid + ":" + password_valid + "\n"))
+def instaToFile(username_valid, password_valid):                                   # ! deprecated
+    with open('credentials/botInsta.txt', 'a+') as f:                               
+        f.write(str(username_valid + ":" + password_valid + "\n"))                 # ! replaced by credToJson function
 
-def emaulToJSON(email_valid, password_valid):
-    with open('credentials/botEmail.json', 'a+') 
+def credToJSON(username_valid, password_valid):
+    credentials = []
+    credentials.append({
+        'username':username_valid,
+        'email':toEmail(username_valid),
+        'password': password_valid
+    })
+    with open('credentials/botCred.json', 'a+') as outfile:
+        json.dump(credentials, outfile)
