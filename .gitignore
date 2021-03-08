@@ -1,7 +1,7 @@
 /__pycache__/
 # ignore python cache directory and all of its content
 
-/unused/
+# /unused/
 # ignore unused code  
 
 geckodriver.log
