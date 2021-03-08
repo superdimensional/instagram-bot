@@ -33,9 +33,9 @@ fullname_input.send_keys(username)
 username_input.send_keys(username)
 password_input.send_keys(password)
 
-login_button = browser.find_element_by_xpath('//button[@type="submit"]') # ? this just fucking broke for no reason
-login_button.click()
-
+login_button = browser.find_element_by_xpath('//button[@type="submit"]')            
+login_button.click()                                                                # ? this just fucking broke for no reason 
+                                                                                    # ? button literally just stopped working
 sleep(3)
 
 # TODO: add something to check if the username is taken
