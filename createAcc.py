@@ -6,37 +6,11 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import Select
 
-from accCred import emailGen, nameGen, passGen
+from accCred import toEmail, JSONToUsername, JSONToPassword
 
-# with open('credentials/botCred.json') as input_file:
-#     json_array = json.load(input_file)
-#     store_list = []
 
-# for item in json_array[1]:
-#     store_details = {"username":None, "email":None, "password":None}
-#     store_details['username'] = item['username']
-#     # store_details['email'] = item['email']
-#     # store_details['password'] = item['password']
-#     store_list.append(store_details)
-#     print(store_list)
-
-input_file = open ('credentials/botCred.json')
-json_array = json.load(input_file)
-store_list_username = []
-store_list_password = []
-
-for item in json_array:
-    stored_username = {"username":None}
-    stored_password = {"password":None}
-    stored_username['username'] = item['username']
-    stored_password['password'] = item['password']
-    store_list_username.append(stored_username)
-    store_list_password.append(stored_password)
-
-username_login = str(store_list_username[1])
-password_login = str(store_list_password[1])
-print(username_login.translate({ord(i): None for i in "{'username': '"}).translate({ord(i): None for i in "'}"}))
-print(password_login.translate({ord(i): None for i in "{'password': '"}).translate({ord(i): None for i in "'}"}))
+username = JSONToUsername(0).translate({ord(i): None for i in "{'username': '"}).translate({ord(i): None for i in "'}"})
+password = JSONToPassword(0).translate({ord(i): None for i in "{'password': '"}).translate({ord(i): None for i in "'}"})
 
 
 # TODO: make it so it cycles between the entries in the json file
@@ -52,17 +26,21 @@ fullname_input = browser.find_element_by_css_selector("input[name='fullName']")
 username_input = browser.find_element_by_css_selector("input[name='username']")
 password_input = browser.find_element_by_css_selector("input[name='password']")
 
-email_input.send_keys(emailGen())
-fullname_input.send_keys(nameGen())
-username_input.send_keys(nameGen())
-password_input.send_keys(passGen())
+print("\nusername: " + username + "\npassword: " + password + "\n")
 
-login_button = browser.find_element_by_xpath("//button[@type='submit']")
+email_input.send_keys(toEmail(username))
+fullname_input.send_keys(username)
+username_input.send_keys(username)
+password_input.send_keys(password)
+
+login_button = browser.find_element_by_xpath('//button[@type="submit"]') # ? this just fucking broke for no reason
 login_button.click()
 
 sleep(3)
 
 # TODO: add something to check if the username is taken
+# TODO: if username taken, advance 1 entry from the json file and try again
+
 # try:
 #     sleep
 #     l = browser.find_element_by_css_selector('input[id="ssfErrorAlert"]')
@@ -87,7 +65,10 @@ drop.select_by_value(str(1900 + random.randint(20, 100)))
 signup_button = browser.find_element_by_xpath("//button[@type='button']")
 signup_button.click()
 
-# TODO: add something to print credentials to instaToFile.txt
+# x_button = browser.find_element_by_css_selector('//button[@aria-label="Close"]')
+# x_button.click()
 
-sleep(10)
-browser.close()
+signup_button.click()
+
+# sleep(10)
+# browser.close()
