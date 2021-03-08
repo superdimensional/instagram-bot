@@ -14,16 +14,19 @@ accPasswd = passGen()
 accUsername = nameGen()
 print(accUsername)
 print(accPasswd)
+# credToJSON(accUsername, accPasswd) # ! remove when finished 
 
 browser = webdriver.Firefox()
 browser.implicitly_wait(5)
 browser.get('https://signup.live.com/signup?lcid=1033&wa=wsignin1.0&rpsnv=13&ct=1614639399&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26signup%3d1%26RpsCsrfState%3d3a30b6f4-ee09-ca31-da8e-a3c6ff4cfa7c&id=292841&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015&lic=1&uaid=f7f6a20df93149dab6001b5324b81fb5')
 sleep(5)
 
-accPasswd = passGen()
-accUsername = nameGen()
-print(accUsername)
-print(accPasswd)
+# accPasswd = passGen()
+# accUsername = nameGen()
+# print(accUsername)
+# print(accPasswd)
+
+
 
 username_input = browser.find_element_by_css_selector('input[id="MemberName"]')
 username_input.send_keys(accUsername, Keys.ENTER)
