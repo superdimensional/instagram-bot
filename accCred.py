@@ -14,7 +14,7 @@ def passGen():
     return passwd
                                             # TODO: in the future make a better password thing using actual letters ?
 
-def emailGen():                             # takes generated name and makes it an email
+def emailGen():                             # takes generated name and makes it an email # ! bassically replaced by toEmail()
     botMail = toEmail(nameGen())            # TODO: fix inconcistancy, it creates a name for an email that has a diffrent name!
     return botMail                          # TODO: add an input for the function and pass the name of the account through it
 
