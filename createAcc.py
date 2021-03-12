@@ -1,6 +1,7 @@
 import json
 import random
 from time import sleep
+from selenium.webdriver.common.keys import Keys
 
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
@@ -34,8 +35,8 @@ username_input.send_keys(username)
 password_input.send_keys(password)
 
 login_button = browser.find_element_by_xpath('//button[@type="submit"]')            
-login_button.click()                                                                # ? this just fucking broke for no reason 
-                                                                                    # ? button literally just stopped working
+login_button.click()                                                               
+                                                                                    
 sleep(3)
 
 # TODO: add something to check if the username is taken
@@ -62,13 +63,16 @@ birthYear = browser.find_element_by_xpath("//select[@title='Year:']")
 drop = Select(birthYear) 
 drop.select_by_value(str(1900 + random.randint(20, 100))) 
 
-signup_button = browser.find_element_by_xpath("//button[@type='button']")
-signup_button.click()
+# ? i give up
 
-# x_button = browser.find_element_by_css_selector('//button[@aria-label="Close"]')
-# x_button.click()
+browser.find_element_by_xpath('//button[@type="button"]').click()
+sleep(2)
+# browser.find_element_by_xpath("//button[@type='button']").click()       # ? this just broke for no reason button literally just stopped working
 
-signup_button.click()
+x_button = browser.find_element_by_class_name('wpO6b  ')#.find_element_by_xpath("//button[@type='button']")
+x_button.click()
 
-# sleep(10)
+birthYear.send_keys(Keys.TAB, Keys.TAB, Keys.ENTER)
+
+# sleep(20)
 # browser.close()
