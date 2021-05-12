@@ -58,16 +58,13 @@ birthDay_input = browser.find_element_by_xpath('//select[@id="BirthDay"]')
 drop = Select(birthDay_input) 
 drop.select_by_value(str(random.randint(1, 28))) 
 
-birthYear_input = browser.find_element_by_xpath('//select[@id="BirthYear"]')
-drop = Select(birthYear_input) 
-drop.select_by_value(str(1900 + random.randint(20, 100))) 
-
-button_input = browser.find_element_by_css_selector('input[id="iSignupAction"]')
-button_input.send_keys(Keys.ENTER)
+birthYear = browser.find_element_by_css_selector('input[id="BirthYear"]')
+birthYear.send_keys(str(1900 + random.randint(20, 100)), Keys.ENTER) 
 
 sleep(120) # time to solve captcha manually will be removed in the future? 
 
 # TODO: add something to automatically do the funCaptcha
+# ? https://stackoverflow.com/questions/47496680/how-i-can-solve-funcaptcha-rotatecaptcha-using-anticaptcha
 
 credToJSON(accUsername, accPasswd) # this is over here to make sure the account is actually valid before dumping it into the file
     
